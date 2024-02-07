@@ -31,7 +31,7 @@ CREATE TABLE [Request] (
 	Date date NOT NULL,
 	Address nvarchar(255) NOT NULL,
 	StatusId int NOT NULL,
-	Comment nvarchar,
+	Comment nvarchar(255),
   CONSTRAINT [PK_REQUEST] PRIMARY KEY CLUSTERED
   (
   [id] ASC
