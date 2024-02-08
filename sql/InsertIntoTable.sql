@@ -1,15 +1,4 @@
 ﻿use HusbandOfAnHour
-insert  into dbo.[UserRole]
-values
-('0','admin'),
-('1','worker'),
-('2','client')
-
-insert into dbo.[Status]
-values 
-('0','Электрик','0'),
-('1','Плотник','0'),
-('2','Сантехник','0')
 
 INSERT INTO dbo.[Status] VALUES
 (0, 'на проверке', 0),
