@@ -1,0 +1,5 @@
+GO
+CREATE PROCEDURE GetAllRequest as
+BEGIN
+SELECT * FROM Request
+END
