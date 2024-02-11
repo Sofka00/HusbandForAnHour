@@ -1,0 +1,10 @@
+GO
+CREATE PROCEDURE CreateUserRole
+@Id INT,
+@Name NVARCHAR
+
+AS
+BEGIN 
+INSERT INTO STATUS (Id, Name)
+VALUES(@Id, @Name)
+END
