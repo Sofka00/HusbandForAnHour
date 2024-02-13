@@ -1,0 +1,8 @@
+GO
+CREATE PROCEDURE DeleteUserRoleById
+@Id INT
+AS
+BEGIN
+DELETE FROM UserRole
+WHERE Id = @Id
+END
