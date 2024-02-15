@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.DAL.Dtos
 {
-    public class Specialization
+    public class SpecializationDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public bool IsDeleted { get; set; }
+        public List<UserDto> User { get; set; }
 
     }
 }

@@ -4,8 +4,9 @@ using System.Data;
 
 namespace HusbandForAnHour.DAL
 {
-    public class Options
+    public static class Options
     {
-        public const string ConnectionString = "Data Source=(localhost);Initial Catalog=HusbandForAnHour;Integrated Security=true; TrustServerCertificate=True";
+        public static string ConnectionString = "Data Source=(localhost);Initial Catalog=HusbandForAnHour;Integrated Security=true; TrustServerCertificate=True";
+
     }
 }
