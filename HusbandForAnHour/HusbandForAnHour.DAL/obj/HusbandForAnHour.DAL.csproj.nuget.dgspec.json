@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Desktop\\программирование саша\\2 мод\\git\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj": {}
+    "D:\\RepoSofa\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Desktop\\программирование саша\\2 мод\\git\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj": {
+    "D:\\RepoSofa\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Desktop\\программирование саша\\2 мод\\git\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj",
+        "projectUniqueName": "D:\\RepoSofa\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj",
         "projectName": "HusbandForAnHour.DAL",
-        "projectPath": "C:\\Users\\user\\Desktop\\программирование саша\\2 мод\\git\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Desktop\\программирование саша\\2 мод\\git\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\obj\\",
+        "projectPath": "D:\\RepoSofa\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\HusbandForAnHour.DAL.csproj",
+        "packagesPath": "C:\\Users\\Aleks\\.nuget\\packages\\",
+        "outputPath": "D:\\RepoSofa\\HusbandForAnHour\\HusbandForAnHour\\HusbandForAnHour.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Aleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://tfs.ekassir.com/eKassirProjectCollection/_packaging/AM-Core%40Local/nuget/v3/index.json": {},
+          "https://tfs.ekassir.com/eKassirProjectCollection/_packaging/CAN/nuget/v3/index.json": {},
+          "https://tfs.ekassir.com/eKassirProjectCollection/_packaging/Cards%40Local/nuget/v3/index.json": {},
+          "https://tfs.ekassir.com/eKassirProjectCollection/_packaging/IPS%40Local/nuget/v3/index.json": {},
+          "https://tfs.ekassir.com/eKassirProjectCollection/_packaging/IPS/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
