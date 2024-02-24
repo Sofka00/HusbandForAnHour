@@ -30,6 +30,14 @@ namespace HusbandForAnHour.DAL
             }
         }
 
+        public List<ServicesDto> GetAllServices()
+        {
+           using(IDbConnection connection = new SqlConnection(Options.ConnectionString)) 
+            { 
+                return connection.Query<ServicesDto>(ServicesStoredProcedure.GetAllServices).ToList();
+            }
+        }
+
         public List<ServicesDto> GetServicesById()
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))

@@ -15,5 +15,6 @@ namespace HusbandForAnHour.DAL.StoredProcedures
         public const string GetServicesById = "GetServicesById";
 
         public const string UpdateServices = "UpdateServices";
+        public const string GetAllServices = "GetAllServices"; 
     }
 }
