@@ -11,6 +11,6 @@ namespace HusbandForAnHour.BLL.Models.InputModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<UserDto> User { get; set; }
+        public List<UserInputModel> User { get; set; }
     }
 }
