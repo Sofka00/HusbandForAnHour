@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HusbandForAnHour.BLL.Models.InpetModels;
 using HusbandForAnHour.BLL.Models.InputModels;
 using HusbandForAnHour.BLL.Models.OutputModels;
 using HusbandForAnHour.DAL.Dtos;
@@ -10,12 +11,14 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.BLL.Mapping
 {
-    public class ServicesMappingProfile : Profile
+    public class RequestMappingProfile: Profile
     {
-        public ServicesMappingProfile()
+        public RequestMappingProfile()
         {
-            CreateMap<ServicesDto, ServicesOutputModel>();
-            CreateMap<ServicesInputModel, ServicesDto>();
+            CreateMap <RequestInputModel, RequestDto> ();
+            CreateMap <RequestDto, RequestOurputModel> ();
         }
+          
+         
     }
 }

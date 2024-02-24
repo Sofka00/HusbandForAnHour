@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.BLL.Models.InpetModels
 {
-    internal class RequestInputModel
+    public class RequestInputModel
     {
         public int ClientId { get; set; }
         public DateTime Date { get; set; }

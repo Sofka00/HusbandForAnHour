@@ -1,18 +1,13 @@
-﻿using HusbandForAnHour.DAL.Dtos;
+﻿using Dapper;
+using HusbandForAnHour.DAL.Dtos;
 using HusbandForAnHour.DAL.IRepositorys;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper;
+using HusbandForAnHour.DAL.StoredProcedures;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using HusbandForAnHour.DAL.StoredProcedures;
 
 namespace HusbandForAnHour.DAL
 {
-    public class RequestRepository : IRequestRepositorys
+    public class RequestRepository : IRequestRepository
     {
         public List<RequestDto> GetAllRequest()
         {

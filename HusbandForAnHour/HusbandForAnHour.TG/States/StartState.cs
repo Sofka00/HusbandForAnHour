@@ -38,17 +38,17 @@ namespace HusbandForAnHour.TG.States
                     {
                         new InlineKeyboardButton[]
                         {
-                            new InlineKeyboardButton("111") { CallbackData="один"},
-                            new InlineKeyboardButton("222") { CallbackData="два"},
+                            new InlineKeyboardButton("Заказать услугу") { CallbackData="один"},
+                            new InlineKeyboardButton("Услуги") { CallbackData="два"},
                         },
                         new InlineKeyboardButton[]
                         {
-                            new InlineKeyboardButton("333") { CallbackData="три"},
+                            new InlineKeyboardButton("Статус заказа") { CallbackData="три"},
                         }
                     }
                     );
 
-            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Knopochki!!!", replyMarkup: markup);
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId,"Выберите действие", replyMarkup: markup);
         }
       
 

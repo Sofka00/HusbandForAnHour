@@ -11,7 +11,7 @@ using System.Data;
 using HusbandForAnHour.DAL.StoredProcedures;
 namespace HusbandForAnHour.DAL
 {
-    public class SpecializationRepository
+    public class SpecializationRepository : ISpecializationRepository
     {
         public List<SpecializationDto> CreateSpecialization()
         {
