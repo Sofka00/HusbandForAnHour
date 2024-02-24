@@ -7,5 +7,5 @@ DELETE FROM Request
 WHERE Id = @Id
 END
 
-EXEC DeleteRequestById 0 
+
 

@@ -1,9 +1,11 @@
-CREATE PROCEDURE GetClientsById
+CREATE PROCEDURE GetClientById
 @Id int 
 AS
 BEGIN
 select [User].Id, [User].FirstName, [User].SecondName, [User].Phone, Request.Address
 from [User], Request
-where [User].RoleId= 2 and [User].Id=@Id
+where [User].RoleId= 2 and [User].Id=@Id and [User].Id=Request.ClientId
 END
- exec GetClientsById 12
+ 
+ exec GetClientById 10
+
