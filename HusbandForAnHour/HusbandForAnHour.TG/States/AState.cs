@@ -11,14 +11,14 @@ namespace HusbandForAnHour.TG.States
 {
     public class BState : AbstractState
     {
-        public string name;
+        private string _name;
         public BState(string name)
         { 
-            this.name = name; 
+            this._name = name; 
         }
         public override AbstractState ReceiveMessage(Update update)
         {
-            return new FState();
+            return new ServicesState();
         }
 
         public override void SendMessage(long chatId)

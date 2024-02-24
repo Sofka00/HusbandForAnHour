@@ -5,9 +5,12 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HusbandForAnHour.DAL", "HusbandForAnHour.DAL\HusbandForAnHour.DAL.csproj", "{43EE454D-1163-48C7-B0AA-5B749632B85A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HusbandForAnHour.BLL", "HusbandForAnHour.BLL\HusbandForAnHour.BLL.csproj", "{E275E6DB-D013-4EFC-92DA-12D98D78F4D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HusbandForAnHour.BLL", "HusbandForAnHour.BLL\HusbandForAnHour.BLL.csproj", "{E275E6DB-D013-4EFC-92DA-12D98D78F4D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HusbandForAnHour.TG", "HusbandForAnHour.TG\HusbandForAnHour.TG.csproj", "{F2DB11DE-EED3-4525-B9CD-FD54F1E5FB12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HusbandForAnHour.TG", "HusbandForAnHour.TG\HusbandForAnHour.TG.csproj", "{F2DB11DE-EED3-4525-B9CD-FD54F1E5FB12}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E275E6DB-D013-4EFC-92DA-12D98D78F4D8} = {E275E6DB-D013-4EFC-92DA-12D98D78F4D8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
