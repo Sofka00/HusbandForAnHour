@@ -48,6 +48,16 @@ namespace HusbandForAnHour.TG
                     id = update.Message.Chat.Id;
                     if (!users.ContainsKey(id))
                         users.Add(id, new StartState());
+                    if (update.Type == UpdateType.Message)
+                    {
+                        var message = update.Message.Text.ToLower();
+                        if (message == "/admin")
+                        {
+                            users[id] = new AdminState();
+                        }
+                    }
+                       
+                  
                     switch (update.Message.Type)
                     {
                         case MessageType.Unknown:
