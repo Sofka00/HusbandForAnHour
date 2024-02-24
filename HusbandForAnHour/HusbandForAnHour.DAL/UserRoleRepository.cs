@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.DAL
 {
-    public class UserRoleRepository
+    public class UserRoleRepository : IUserRoleRepository
     {
         public List<UserRoleDto> CreateUserRole()
         {

@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.BLL.Mapping
 {
-    public class ServicesMappingProfile : Profile
+    public class UserMappingProfile :Profile
     {
-        public ServicesMappingProfile()
+         public UserMappingProfile() 
         {
-            CreateMap<ServicesDto, ServicesOutputModel>();
-            CreateMap<ServicesInputModel, ServicesDto>();
+            CreateMap<UserDto, UserOutputModel>();
+            CreateMap<UserInputModel, UserDto>();
         }
     }
 }

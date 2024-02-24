@@ -12,7 +12,7 @@ using HusbandForAnHour.DAL.StoredProcedures;
 
 namespace HusbandForAnHour.DAL
 {
-    public class StatusRepository
+    public class StatusRepository : IStatusRepository
     {
         public List<StatusDto> CreateStatus()
         {

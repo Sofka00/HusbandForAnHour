@@ -12,7 +12,7 @@ using HusbandForAnHour.DAL.StoredProcedures;
 
 namespace HusbandForAnHour.DAL
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         public List<UserDto> CreateUser()
         {

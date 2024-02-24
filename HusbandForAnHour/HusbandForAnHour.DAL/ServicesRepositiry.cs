@@ -12,7 +12,7 @@ using HusbandForAnHour.DAL.Dtos;
 
 namespace HusbandForAnHour.DAL
 {
-    public class ServicesRepositiry: IServicesRepositorys
+    public class ServicesRepositiry : IServicesRepositiry
     {
         public List<ServicesDto> CreateServices()
         {
