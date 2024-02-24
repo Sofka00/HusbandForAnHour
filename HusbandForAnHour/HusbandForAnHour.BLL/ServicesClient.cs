@@ -22,7 +22,7 @@ namespace HusbandForAnHour.BLL
         }
         public List <ServicesOutputModel> GetServices()
         {
-            List<ServicesDto> servicesDtos = _servicesRepositiry.GetServicesById();
+            List<ServicesDto> servicesDtos = _servicesRepositiry.GetAllServices();
            return  _mapper.Map<List<ServicesOutputModel>>(servicesDtos);
 
             
