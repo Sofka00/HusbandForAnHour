@@ -20,10 +20,10 @@ namespace HusbandForAnHour.BLL
             });
             _mapper = new Mapper(config);
         }
-        public List<RequestOurputModel> GetRequests()
+        public List<GetAllRequestOutPutModel> GetRequests()
         {
-            List<RequestDto> requestDtos = _requestRepositiry.GetAllRequest();
-            return _mapper.Map<List<RequestOurputModel>>(requestDtos);
+            List<GetAllRequestDto> requestDtos = _requestRepositiry.GetAllRequest();
+            return _mapper.Map<List<GetAllRequestOutPutModel>>(requestDtos);
 
 
         }

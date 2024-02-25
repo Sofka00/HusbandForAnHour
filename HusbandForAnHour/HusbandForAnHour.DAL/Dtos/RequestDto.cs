@@ -11,7 +11,7 @@ namespace HusbandForAnHour.DAL.Dtos
     {
         public  int Id { get; set; }
         public List<UserDto> Worker { get; set; }
-        public int ClientId { get; set; }
+        public UserDto Client{ get; set; }
         public List<ServicesDto> Services { get; set; }
         public DateTime Date {  get; set; }
         public string Address { get; set; }

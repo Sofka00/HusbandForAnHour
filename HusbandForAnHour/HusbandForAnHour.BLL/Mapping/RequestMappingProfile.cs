@@ -16,7 +16,12 @@ namespace HusbandForAnHour.BLL.Mapping
         public RequestMappingProfile()
         {
             CreateMap <RequestInputModel, RequestDto> ();
-            CreateMap <RequestDto, RequestOurputModel> ();
+            CreateMap <RequestDto, RequestOutputModel> ();
+            CreateMap<UserDto, RequestOutputModel>();
+            CreateMap<RequestInputModel, UserDto> ();
+            CreateMap<GetAllRequestDto,GetAllRequestOutPutModel> ();
+           
+
         }
           
          
