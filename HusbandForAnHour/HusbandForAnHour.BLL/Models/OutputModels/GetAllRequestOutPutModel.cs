@@ -10,9 +10,10 @@ namespace HusbandForAnHour.BLL.Models.OutputModels
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
+        public string SecondName { get; set; }
         public DateTime Date { get; set; }
-        public int StatusId { get; set; }
         public string Address { get; set; }
         public int? Phone { get; set; }
+        public string Status { get; set; }
     }
 }
