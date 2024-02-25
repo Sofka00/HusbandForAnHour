@@ -26,9 +26,9 @@ namespace HusbandForAnHour.TG.States.AdminStates
             List<GetAllRequestOutPutModel> requests = _request.GetRequests();
             foreach(GetAllRequestOutPutModel request in requests) 
             {
-                message += $" {request.Id}{request.FirstName} {request.Date} {request.StatusId} {request.Address} {request.Phone} {Environment.NewLine}";
+                message += $" {request.Id}{request.FirstName} {request.SecondName} {request.Date}  {request.Address} {request.Phone} {request.Status} {Environment.NewLine}";
             }
-            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Заявки: "+message);
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId,$"Заявки: {Environment.NewLine} " + message);
 
 
         }
