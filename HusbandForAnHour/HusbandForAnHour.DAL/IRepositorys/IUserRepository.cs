@@ -4,7 +4,7 @@ namespace HusbandForAnHour.DAL.IRepositorys
 {
     public interface IUserRepository
     {
-        List<UserDto> CreateUser();
+        UserDto CreateUser(UserDto userDto);
         List<UserDto> DeleteUser();
         List<UserDto> GetUserById();
         List<UserDto> UpdateUser();

@@ -46,7 +46,7 @@ namespace HusbandForAnHour.TG.States.AdminStates
                 count++;
             }
 
-            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Выберите специализацию", replyMarkup: new InlineKeyboardMarkup(keys)); ;
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Выберите специализацию", replyMarkup: new InlineKeyboardMarkup(keys)); 
         }
     }
 }

@@ -47,7 +47,7 @@ CREATE TABLE [User] (
 	RoleId int REFERENCES UserRole (Id) NOT NULL,
 	FirstName nvarchar(255) NOT NULL,
 	SecondName nvarchar(255) NOT NULL,
-	Phone int,
+	Phone BIGINT,
 	SpecializationId int REFERENCES Specialization (Id),
 	IsDeleted bit NOT NULL,
   CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using HusbandForAnHour.BLL.Mapping;
+using HusbandForAnHour.BLL.Models.InputModels;
 using HusbandForAnHour.BLL.Models.OutputModels;
 using HusbandForAnHour.DAL;
 using HusbandForAnHour.DAL.Dtos;
+using HusbandForAnHour.DAL.IRepositorys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +33,16 @@ namespace HusbandForAnHour.BLL
             return _mapper.Map<List<UserOutputModel>>(userDtos);
 
 
+        }
+        public void CreateWorker(CreateWorkerInputModel inputModel)
+        {
+            var convertUserDto = _mapper.Map<UserDto>(inputModel);
+            _userRepository.CreateUser(convertUserDto);
+        }
+
+        public int GetLastUserId()
+        {
+            return _userRepository.GetLastUserId();
         }
     }
 }

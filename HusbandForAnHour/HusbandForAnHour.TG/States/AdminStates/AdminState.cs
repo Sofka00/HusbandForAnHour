@@ -8,6 +8,7 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using HusbandForAnHour.TG.States.AdminStates;
+using HusbandForAnHour.TG.States.AdminStates.AdminCreateWorkerStates;
 
 
 namespace HusbandForAnHour.TG.States.AdminStates
@@ -26,6 +27,10 @@ namespace HusbandForAnHour.TG.States.AdminStates
                
                 replyState = new CreateNameState();
             }
+            else if (update.CallbackQuery.Data == "2")
+            {
+                replyState = new CreateWorkerState();
+            }
                 return replyState;
         }
 
@@ -37,7 +42,7 @@ namespace HusbandForAnHour.TG.States.AdminStates
                         new InlineKeyboardButton[]
                         {
                             new InlineKeyboardButton("Добавить услугу") { CallbackData="1"},
-                            new InlineKeyboardButton("Добавить мастера") { CallbackData="два"},
+                            new InlineKeyboardButton("Добавить мастера") { CallbackData="2"},
                         },
                         new InlineKeyboardButton[]
                         {

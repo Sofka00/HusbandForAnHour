@@ -4,7 +4,7 @@ CREATE PROCEDURE CreateSeUser
 @RoleId INT,
 @FirstName NVARCHAR,
 @SecondName NVARCHAR,
-@Phone INT,
+@Phone BIGINT,
 @SpecializationId INT
 AS
 BEGIN 

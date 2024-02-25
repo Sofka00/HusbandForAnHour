@@ -10,11 +10,11 @@ namespace HusbandForAnHour.DAL.Dtos
     public class UserDto
     {
         public int Id { get; set; }
-        public UserRoleDto Role { get; set; }
+        public int RoleId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public  int? Phone { get; set; }
-        public List<SpecializationDto> Specialization { get; set; }
+        public  long? Phone { get; set; }
+        public List<SpecializationDto> SpecializationId { get; set; }
         public bool IsDeleted { get; set; }
         public List<RequestDto> Requests { get; set; }  
     }

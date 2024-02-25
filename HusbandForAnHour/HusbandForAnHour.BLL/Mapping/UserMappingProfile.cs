@@ -16,6 +16,7 @@ namespace HusbandForAnHour.BLL.Mapping
         {
             CreateMap<UserDto, UserOutputModel>();
             CreateMap<UserInputModel, UserDto>();
+            CreateMap<CreateWorkerInputModel, UserDto>();
         }
     }
 }

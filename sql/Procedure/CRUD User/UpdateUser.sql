@@ -4,7 +4,7 @@ CREATE PROCEDURE UpdateUser
 @RoleId INT,
 @FirstName NVARCHAR(255),
 @SecondName NVARCHAR(255),
-@Phone INT,
+@Phone BIGINT,
 @SpecializationId INT
 AS
 BEGIN 
@@ -13,11 +13,6 @@ SET  RoleId = @RoleId , FirstName =@FirstName,SecondName=@SecondName,Phone = @Ph
 WHERE Id=@Id
 END
 
-exec UpdateUser 1,
-@RoleId =2,
-@FirstName= aaa,
-@SecondName=eee,
-@Phone=234,
-@SpecializationId=3
+
 
 
