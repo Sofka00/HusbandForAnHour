@@ -44,5 +44,12 @@ namespace HusbandForAnHour.DAL
                 return connection.Query<SpecializationDto>(SpecializationStoredProcedure.UpdateSpecialization).ToList();
             }
         }
+        public List<SpecializationDto> GetAllSpecialization()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.GetAllSpecialization).ToList();
+            }
+        }
     }
 }

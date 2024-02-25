@@ -14,12 +14,12 @@ namespace HusbandForAnHour.DAL
 {
     public class ServicesRepositiry : IServicesRepositiry
     {
-        public List<ServicesDto> CreateServices()
+        public ServicesDto CreateServices(ServicesDto servicesDto)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<ServicesDto>(ServicesStoredProcedure.CreateServices).ToList();
-            }
+                return connection.Query<ServicesDto>(ServicesStoredProcedure.CreateServices, servicesDto).FirstOrDefault();    
+            }                                                                                    
         }
 
         public List<ServicesDto> DeleteServices()

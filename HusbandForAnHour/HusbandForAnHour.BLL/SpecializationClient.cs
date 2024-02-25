@@ -24,10 +24,10 @@ namespace HusbandForAnHour.BLL
             });
             _mapper = new Mapper(config);
         }
-        public List<SpecializationOutputModel> GetSpecializations()
+        public List<GetAllSpecializationOutputModel> GetSpecializations()
         {
-            List<SpecializationDto> specializationsDtos = _specializationRepository.GetSpecializationById();
-            return _mapper.Map < List<SpecializationOutputModel>>(specializationsDtos);
+            List<SpecializationDto> specializationsDtos = _specializationRepository.GetAllSpecialization();
+            return _mapper.Map < List<GetAllSpecializationOutputModel>>(specializationsDtos);
         }
     }
 }

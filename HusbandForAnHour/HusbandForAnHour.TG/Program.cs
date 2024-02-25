@@ -51,7 +51,7 @@ namespace HusbandForAnHour.TG
                         users.Add(id, new StartState());
                     else
                     {
-                        users[id].ReceiveMessage(update);  
+                        users[id] = users[id].ReceiveMessage(update);  
                     }
                     if (update.Type == UpdateType.Message)
                     {

@@ -15,5 +15,6 @@ namespace HusbandForAnHour.DAL.StoredProcedures
         public const string GetSpecializationById = "GetSpecializationById";
 
         public const string UpdateSpecialization = "UpdateSpecialization";
+        public const string GetAllSpecialization = "GetAllSpecialization";
     }
 }
