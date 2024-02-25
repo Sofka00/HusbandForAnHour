@@ -6,7 +6,7 @@ namespace HusbandForAnHour.DAL
     {
         List<RequestDto> CreateRequest();
         List<RequestDto> DeleteRequestById();
-        List<RequestDto> GetAllRequest();
+        List<GetAllRequestDto> GetAllRequest();
         List<RequestDto> GetRequestById();
         List<RequestDto> UpdateRequest();
     }

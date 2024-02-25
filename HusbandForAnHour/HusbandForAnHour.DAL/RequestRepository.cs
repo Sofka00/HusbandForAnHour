@@ -9,11 +9,11 @@ namespace HusbandForAnHour.DAL
 {
     public class RequestRepository : IRequestRepository
     {
-        public List<RequestDto> GetAllRequest()
+        public List<GetAllRequestDto> GetAllRequest()
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<RequestDto>(RequestStoredProcedure.GetAllRequest).ToList();
+                return connection.Query<GetAllRequestDto>(RequestStoredProcedure.GetAllRequest).ToList();
             }
         }
 

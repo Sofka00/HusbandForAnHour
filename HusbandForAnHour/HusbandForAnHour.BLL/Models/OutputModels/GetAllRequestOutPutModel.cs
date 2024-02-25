@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.BLL.Models.OutputModels
 {
-    public class RequestOurputModel
+    public class GetAllRequestOutPutModel
     {
-        public int ClientId { get; set; }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
         public DateTime Date { get; set; }
+        public int StatusId { get; set; }
         public string Address { get; set; }
-
+        public int? Phone { get; set; }
     }
 }
