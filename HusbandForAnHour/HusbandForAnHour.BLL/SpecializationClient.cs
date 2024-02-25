@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using HusbandForAnHour.BLL.Mapping;
+using HusbandForAnHour.BLL.Models.InputModels;
 using HusbandForAnHour.BLL.Models.OutputModels;
 using HusbandForAnHour.DAL;
 using HusbandForAnHour.DAL.Dtos;
@@ -28,6 +29,14 @@ namespace HusbandForAnHour.BLL
         {
             List<SpecializationDto> specializationsDtos = _specializationRepository.GetAllSpecialization();
             return _mapper.Map < List<GetAllSpecializationOutputModel>>(specializationsDtos);
+        }
+        public SpecializationOutputModel CreateSpecialization(SpecializationInputModel inputModel)
+        {
+            return _mapper.Map<SpecializationOutputModel>(_specializationRepository.CreateSpecialization(_mapper.Map<SpecializationDto>(inputModel)));
+        }
+        public int  GetLastSpecializationId()
+        {
+            return _specializationRepository.GetLastSpecializationId();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace HusbandForAnHour.BLL.Mapping
             CreateMap<SpecializationDto, SpecializationOutputModel>();
             CreateMap<SpecializationInputModel, SpecializationDto>();
             CreateMap<SpecializationDto, GetAllSpecializationOutputModel>();
+            CreateMap<CreateServicesInputModel, ServicesDto>();
         }
     }
 }

@@ -14,11 +14,12 @@ namespace HusbandForAnHour.DAL
 {
     public class ServicesRepositiry : IServicesRepositiry
     {
-        public ServicesDto CreateServices(ServicesDto servicesDto)
+        public void CreateServices(ServicesDto servicesDto)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<ServicesDto>(ServicesStoredProcedure.CreateServices, servicesDto).FirstOrDefault();    
+                var anonymus = new {Id=servicesDto.Id, Name=servicesDto.Name, SpecializationId=servicesDto.SpecializationId };
+                connection.Query<ServicesDto>(ServicesStoredProcedure.CreateServices, anonymus);    
             }                                                                                    
         }
 
@@ -51,6 +52,13 @@ namespace HusbandForAnHour.DAL
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
                 return connection.Query<ServicesDto>(ServicesStoredProcedure.UpdateServices).ToList();
+            }
+        }
+        public int GetLastServiceId()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<int>("SELECT TOP 1 Services.Id FROM dbo.Services ORDER BY Id DESC").FirstOrDefault();
             }
         }
     }

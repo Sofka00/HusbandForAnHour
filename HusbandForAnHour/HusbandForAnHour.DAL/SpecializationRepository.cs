@@ -13,11 +13,13 @@ namespace HusbandForAnHour.DAL
 {
     public class SpecializationRepository : ISpecializationRepository
     {
-        public List<SpecializationDto> CreateSpecialization()
+        public SpecializationDto CreateSpecialization(SpecializationDto specializationDto)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.CreateSpecialization).ToList();
+                var anonymous = new {Id=specializationDto.Id, Name=specializationDto.Name };
+                
+                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.CreateSpecialization, anonymous).FirstOrDefault();
             }
         }
 
@@ -49,6 +51,13 @@ namespace HusbandForAnHour.DAL
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
                 return connection.Query<SpecializationDto>(SpecializationStoredProcedure.GetAllSpecialization).ToList();
+            }
+        } 
+        public int GetLastSpecializationId()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<int>("SELECT TOP 1 Specialization.Id FROM dbo.Specialization ORDER BY Id DESC").FirstOrDefault();
             }
         }
     }

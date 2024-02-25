@@ -4,8 +4,7 @@ namespace HusbandForAnHour.DAL.IRepositorys
 {
     public interface IServicesRepositiry
     {
-        ServicesDto CreateServices(ServicesDto servicesDto);
-
+        void CreateServices(ServicesDto servicesDto);
         List<ServicesDto> DeleteServices();
         List<ServicesDto> GetServicesById();
         List<ServicesDto> UpdateServices();

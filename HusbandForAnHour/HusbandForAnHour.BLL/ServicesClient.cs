@@ -28,12 +28,16 @@ namespace HusbandForAnHour.BLL
 
             
         }
-        public ServicesOutputModel CreateServices(CreateServicesInputModel inputModel)
+
+        public void CreateServices(CreateServicesInputModel inputModel)
         {
            var convertServicesDto= _mapper.Map<ServicesDto>(inputModel);
-            ServicesDto servicesDto = _servicesRepositiry.CreateServices(convertServicesDto);
-           return _mapper.Map<ServicesDto, ServicesOutputModel>(servicesDto);
+            _servicesRepositiry.CreateServices(convertServicesDto);
         }
 
+        public int GetLastServiceId()
+        {
+            return _servicesRepositiry.GetLastServiceId();
+        }
     }
 }

@@ -4,11 +4,11 @@ namespace HusbandForAnHour.DAL
 {
     public interface ISpecializationRepository
     {
-        List<SpecializationDto> CreateSpecialization();
+        SpecializationDto CreateSpecialization(SpecializationDto specializationDto);
         List<SpecializationDto> DeleteSpecialization();
         List<SpecializationDto> GetSpecializationById();
         List<SpecializationDto> UpdateSpecialization();
         List<SpecializationDto> GetAllSpecialization();
-
+        int GetLastSpecializationId();
     }
 }
