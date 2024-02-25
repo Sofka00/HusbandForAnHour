@@ -4,6 +4,7 @@ using HusbandForAnHour.DAL.Dtos;
 using AutoMapper;
 using HusbandForAnHour.BLL.Mapping;
 using HusbandForAnHour.BLL.Models.OutputModels;
+using HusbandForAnHour.BLL.Models.InputModels;
 namespace HusbandForAnHour.BLL
 {
     public class ServicesClient
@@ -26,6 +27,12 @@ namespace HusbandForAnHour.BLL
            return  _mapper.Map<List<ServicesOutputModel>>(servicesDtos);
 
             
+        }
+        public ServicesOutputModel CreateServices(CreateServicesInputModel inputModel)
+        {
+           var convertServicesDto= _mapper.Map<ServicesDto>(inputModel);
+            ServicesDto servicesDto = _servicesRepositiry.CreateServices(convertServicesDto);
+           return _mapper.Map<ServicesDto, ServicesOutputModel>(servicesDto);
         }
 
     }

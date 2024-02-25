@@ -14,7 +14,7 @@ namespace HusbandForAnHour.DAL.Dtos
         public DateTime Date { get; set; }
         public string Address { get; set; }
         public int? Phone { get; set; }
-        public string Status { get; set; }
+        public string Name { get; set; }
 
     }
 }

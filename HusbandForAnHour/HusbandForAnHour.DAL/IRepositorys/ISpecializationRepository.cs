@@ -8,5 +8,7 @@ namespace HusbandForAnHour.DAL
         List<SpecializationDto> DeleteSpecialization();
         List<SpecializationDto> GetSpecializationById();
         List<SpecializationDto> UpdateSpecialization();
+        List<SpecializationDto> GetAllSpecialization();
+
     }
 }
