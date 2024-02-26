@@ -8,11 +8,11 @@ namespace HusbandForAnHour.TG.States.WorkerStates
 {
     public class AcceptedRequestsState : AbstractState
     {
-        private RequestClient _requestClient;
+        private RequestService _requestClient;
 
         public AcceptedRequestsState()
         {
-            _requestClient = new RequestClient();
+            _requestClient = new RequestService();
         }
 
         public override AbstractState ReceiveMessage(Update update)

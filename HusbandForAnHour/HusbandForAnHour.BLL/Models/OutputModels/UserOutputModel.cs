@@ -10,12 +10,11 @@ namespace HusbandForAnHour.BLL.Models.OutputModels
     public class UserOutputModel
     {
         public long Id { get; set; }
-        public int RoleId { get; set; }
+        public UserRoleOutputModel Role { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
-        public long? Phone { get; set; }
-        public int SpecializationId { get; set; }
-        public bool IsDeleted { get; set; }
-        public List<RequestOutputModel> Requests { get; set; }
+        public long Phone { get; set; }
+        public string Email { get; set; }
+        public List<SpecializationOutputModel> specializations { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace HusbandForAnHour.TG.States.AdminStates
 {
     public class AdminStateRequest : AbstractState
     {
-        private RequestClient _request;
+        private RequestService _request;
         public override AbstractState ReceiveMessage(Update update)
         {
             return this;
@@ -22,7 +22,7 @@ namespace HusbandForAnHour.TG.States.AdminStates
         public override void SendMessage(long chatId)
         {
             string message = "";
-            _request = new RequestClient();
+            _request = new RequestService();
             List<GetAllRequestOutPutModel> requests = _request.GetRequests();
             foreach(GetAllRequestOutPutModel request in requests) 
             {

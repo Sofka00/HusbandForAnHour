@@ -13,7 +13,7 @@ namespace HusbandForAnHour.TG.States
 { 
     public class ServicesState : AbstractState
     {
-        private ServicesClient _services;
+        private ServicesService _services;
       
 
         public override AbstractState ReceiveMessage(Update update)
@@ -23,7 +23,7 @@ namespace HusbandForAnHour.TG.States
 
         public override void SendMessage(long chatId)
         {
-            _services = new ServicesClient();
+            _services = new ServicesService();
            List<ServicesOutputModel> services = _services.GetServices();
            List<List<InlineKeyboardButton>> keys = new List<List<InlineKeyboardButton>>();
             int count = 0;

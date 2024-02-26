@@ -1,5 +1,4 @@
 ﻿using HusbandForAnHour.DAL.Dtos;
-using HusbandForAnHour.DAL.IRepositorys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
