@@ -18,16 +18,20 @@ namespace HusbandForAnHour.TG.States.AdminStates
         public override AbstractState ReceiveMessage(Update update)
         {   
             AbstractState replyState=new StartState();
-            if (update.CallbackQuery.Data == "3")
+            if (update.CallbackQuery.Data == "1")
             {
                 replyState=new AdminStateRequest();
             }
-            else if (update.CallbackQuery.Data == "1")
+            else if (update.CallbackQuery.Data == "2")
             {
                
                 replyState = new CreateNameState();
             }
-            else if (update.CallbackQuery.Data == "2")
+            else if (update.CallbackQuery.Data == "3")
+            {
+                replyState = new CreateWorkerState();
+            }                     
+            else if (update.CallbackQuery.Data == "4")
             {
                 replyState = new CreateWorkerState();
             }
@@ -41,12 +45,13 @@ namespace HusbandForAnHour.TG.States.AdminStates
                   {
                         new InlineKeyboardButton[]
                         {
-                            new InlineKeyboardButton("Добавить услугу") { CallbackData="1"},
-                            new InlineKeyboardButton("Добавить мастера") { CallbackData="2"},
+                            new InlineKeyboardButton("Работа с таблицами") { CallbackData="1"},
+                            new InlineKeyboardButton("Обработать Заявки") { CallbackData="2"},
                         },
                         new InlineKeyboardButton[]
                         {
-                            new InlineKeyboardButton("Заявки") { CallbackData="3"},
+                            new InlineKeyboardButton("Заявки В работе") { CallbackData="3"},
+                            new InlineKeyboardButton("Редактировать заявку") { CallbackData="4"},
                         }
                   }
                   );
