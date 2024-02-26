@@ -9,50 +9,52 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using HusbandForAnHour.DAL.StoredProcedures;
+using HusbandForAnHour.DAL.IRepositories;
 
 namespace HusbandForAnHour.DAL
 {
     public class UserRepository : IUserRepository
     {
-        public UserDto CreateUser(UserDto userDto)
+        public void CreateUser(int roleId, string firstName, string secondName, long phone)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                var anonymus = new { Id = userDto.Id, RoleId = userDto.RoleId, FirstName=userDto.FirstName, SecondName = userDto.SecondName, Phone = userDto.Phone, SpecializationId = userDto.SpecializationId};
-                return connection.Query<UserDto>(UserStoredProcedure.CreateUser, anonymus).FirstOrDefault();
+                connection.Execute(UserStoredProcedure.CreateUser, new { RoleId = roleId, FirstName = firstName, SecondName = secondName, Phone = phone }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<UserDto> DeleteUser()
+        public UserDto GetUser(long id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserDto>(UserStoredProcedure.DeleteUser).ToList();
+                return connection.QuerySingle<UserDto>(UserStoredProcedure.GetUser, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<UserDto> GetUserById()
+        public int UpdateUser(long id, int roleId, string firstName, string secondName, long phone)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserDto>(UserStoredProcedure.GetUserById).ToList();
+                return connection.Execute(UserStoredProcedure.UpdateUser, new { Id = id, RoleId = roleId, FirstName = firstName, SecondName = secondName, Phone = phone }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<UserDto> UpdateUser()
+        public int DeleteUser(long id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserDto>(UserStoredProcedure.UpdateUser).ToList();
+                return connection.Execute(UserStoredProcedure.DeleteUser, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
-        public int GetLastUserId()
+
+        public int RestoreUser(long id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<int>("SELECT TOP 1 dbo.[User].Id FROM dbo.[User] ORDER BY Id DESC").FirstOrDefault();
+                return connection.Execute(UserStoredProcedure.RestoreUser, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+
 
     }
 }

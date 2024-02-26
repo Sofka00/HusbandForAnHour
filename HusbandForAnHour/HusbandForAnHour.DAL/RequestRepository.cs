@@ -5,12 +5,8 @@ using HusbandForAnHour.DAL.StoredProcedures;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-public class RequestRepository
+public class RequestRepository : IRequestRepository
 {
-
-    public RequestRepository()
-    {
-    }
 
     public void CreateRequest(long clientId, DateTime date, string address, int statusId, string comment)
     {
@@ -56,7 +52,7 @@ public class RequestRepository
     {
         using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
         {
-           return connection.Execute(RequestStoredProcedure.UpdateRequest, new { Id = id, ClientId = clientId, Date = date, Address = address, StatusId = statusId, Comment = comment }, commandType: CommandType.StoredProcedure);
+            return connection.Execute(RequestStoredProcedure.UpdateRequest, new { Id = id, ClientId = clientId, Date = date, Address = address, StatusId = statusId, Comment = comment }, commandType: CommandType.StoredProcedure);
         }
     }
 }

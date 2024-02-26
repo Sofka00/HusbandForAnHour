@@ -9,41 +9,51 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using HusbandForAnHour.DAL.StoredProcedures;
+using HusbandForAnHour.DAL.IRepositories;
 
 namespace HusbandForAnHour.DAL
 {
     public class StatusRepository : IStatusRepository
     {
-        public List<StatusDto> CreateStatus()
+        public void CreateStatus(string name)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<StatusDto>(StatusStoredProcedure.CreateStatus).ToList();
+                connection.Execute(StatusStoredProcedure.CreateStatus, new { Name = name }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<StatusDto> DeleteStatus()
+        public StatusDto GetStatus(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<StatusDto>(StatusStoredProcedure.DeleteStatus).ToList();
+                return connection.QuerySingle<StatusDto>(StatusStoredProcedure.GetStatus, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<StatusDto> GetStatusById()
+        public int UpdateStatus(int id, string name)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<StatusDto>(StatusStoredProcedure.GetStatusById).ToList();
+                return connection.Execute(StatusStoredProcedure.UpdateStatus, new { Id = id, Name = name }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<StatusDto> UpdateStatus()
+        public int DeleteStatus(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<StatusDto>(StatusStoredProcedure.UpdateStatus).ToList();
+                return connection.Execute(StatusStoredProcedure.DeleteStatus, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public int RestoreStatus(int id)
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Execute(StatusStoredProcedure.RestoreStatus, new { Id = id }, commandType: CommandType.StoredProcedure);
+            }
+        }
+
     }
 }

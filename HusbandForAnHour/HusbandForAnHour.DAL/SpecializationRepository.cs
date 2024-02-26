@@ -9,56 +9,50 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using HusbandForAnHour.DAL.StoredProcedures;
+using HusbandForAnHour.DAL.IRepositories;
 namespace HusbandForAnHour.DAL
 {
     public class SpecializationRepository : ISpecializationRepository
     {
-        public SpecializationDto CreateSpecialization(SpecializationDto specializationDto)
+        public void CreateSpecialization(string name)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                var anonymous = new {Id=specializationDto.Id, Name=specializationDto.Name };
-                
-                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.CreateSpecialization, anonymous).FirstOrDefault();
+                connection.Execute(SpecializationStoredProcedure.CreateSpecialization, new { Name = name }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<SpecializationDto> DeleteSpecialization()
+        public SpecializationDto GetSpecialization(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.DeleteSpecialization).ToList();
+                return connection.QuerySingle<SpecializationDto>(SpecializationStoredProcedure.GetSpecialization, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<SpecializationDto> GetSpecializationById()
+        public int UpdateSpecialization(int id, string name)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.GetSpecializationById).ToList();
+                return connection.Execute(SpecializationStoredProcedure.UpdateSpecialization, new { Id = id, Name = name }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<SpecializationDto> UpdateSpecialization()
+        public int DeleteSpecialization(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.UpdateSpecialization).ToList();
+                return connection.Execute(SpecializationStoredProcedure.DeleteSpecialization, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
-        public List<SpecializationDto> GetAllSpecialization()
+
+        public int RestoreSpecialization(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.GetAllSpecialization).ToList();
-            }
-        } 
-        public int GetLastSpecializationId()
-        {
-            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
-            {
-                return connection.Query<int>("SELECT TOP 1 Specialization.Id FROM dbo.Specialization ORDER BY Id DESC").FirstOrDefault();
+                return connection.Execute(SpecializationStoredProcedure.RestoreSpecialization, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+
     }
 }

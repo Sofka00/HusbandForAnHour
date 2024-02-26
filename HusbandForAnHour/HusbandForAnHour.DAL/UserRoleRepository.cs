@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using HusbandForAnHour.DAL.Dtos;
+using HusbandForAnHour.DAL.IRepositories;
 using HusbandForAnHour.DAL.StoredProcedures;
 using Microsoft.Data.SqlClient;
 using System;
@@ -13,36 +14,45 @@ namespace HusbandForAnHour.DAL
 {
     public class UserRoleRepository : IUserRoleRepository
     {
-        public List<UserRoleDto> CreateUserRole()
+        public void CreateUserRole(string name)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserRoleDto>(UserRoleStoredProcedure.CreateUserRole).ToList();
+                connection.Execute(UserRoleStoredProcedure.CreateUserRole, new { Name = name }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<UserRoleDto> DeleteUserRoleById()
+        public UserRoleDto GetUserRole(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserRoleDto>(UserRoleStoredProcedure.DeleteUserRoleById).ToList();
+                return connection.QuerySingle<UserRoleDto>(UserRoleStoredProcedure.GetUserRole, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<UserRoleDto> GetUserRoleById()
+        public int UpdateUserRole(int id, string name)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserRoleDto>(UserRoleStoredProcedure.GetUserRoleById).ToList();
+                return connection.Execute(UserRoleStoredProcedure.UpdateUserRole, new { Id = id, Name = name }, commandType: CommandType.StoredProcedure);
             }
         }
 
-        public List<UserRoleDto> UpdateUserRole()
+        public int DeleteUserRole(int id)
         {
             using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
             {
-                return connection.Query<UserRoleDto>(UserRoleStoredProcedure.UpdateUserRole).ToList();
+                return connection.Execute(UserRoleStoredProcedure.DeleteUserRole, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public int RestoreUserRole(int id)
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Execute(UserRoleStoredProcedure.RestoreUserRole, new { Id = id }, commandType: CommandType.StoredProcedure);
+            }
+        }
+
     }
 }
