@@ -7,16 +7,31 @@ using Telegram.Bot.Types;
 
 namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 {
-    public class AddUserState : AbstractState
+    public class DeleteUserState : AbstractState
     {
+            private UserService userService;
+        public DeleteUserState()
+        {
+            _userService = new UserService();
+        }
         public override AbstractState ReceiveMessage(Update update)
         {
-            throw new NotImplementedException();
+            AbstractState abstractState = this;
+            if (int.TryParse(update.Message.Text, out int id))
+            {
+                _userService.DeleteUser(id);
+            }
+            else
+            {
+                SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.Message.Chat, "Id не вереен ");
+                return this;
+            }
+            return new AdminState();
         }
 
         public override void SendMessage(long chatId)
         {
-            throw new NotImplementedException();
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Введите Id для удаления");
         }
     }
 }
