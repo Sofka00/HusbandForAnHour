@@ -15,6 +15,6 @@ namespace HusbandForAnHour.BLL.Models.OutputModels
         public string SecondName { get; set; }
         public long Phone { get; set; }
         public string Email { get; set; }
-        public List<SpecializationOutputModel> specializations { get; set; }
+        public List<SpecializationOutputModel> Specializations { get; set; }
     }
 }

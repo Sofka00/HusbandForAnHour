@@ -11,7 +11,7 @@ namespace HusbandForAnHour.BLL
         private RequestRepository _requestRepository;
         private RequestWorkerRepository _requestWorkerRepository;
         private RequestServiceRepository _requestServiceRepository;
-        private ServicesService _servicesClient;
+        private ServiceService _servicesClient;
         private UserService _userService;
         private Mapper _mapper;
 
