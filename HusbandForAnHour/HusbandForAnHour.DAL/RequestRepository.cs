@@ -39,6 +39,13 @@ public class RequestRepository : IRequestRepository
             return connection.QuerySingle<RequestDto>(RequestStoredProcedure.GetRequest, new { Id = id }, commandType: CommandType.StoredProcedure);
         }
     }
+     public List<RequestDto> GetAllRequestByStatus(int statusId)
+    {
+        using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+        {
+            return connection.Query<RequestDto>(RequestStoredProcedure.GetAllRequestByStatus, new { StatusId=statusId },commandType: CommandType.StoredProcedure).ToList();
+        }
+    }
 
     public List<RequestDto> GetRequestByClient(long clientId)
     {

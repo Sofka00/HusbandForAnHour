@@ -3,6 +3,7 @@ using HusbandForAnHour.BLL.Mapping;
 using HusbandForAnHour.BLL.Models.OutputModels;
 using HusbandForAnHour.DAL;
 using HusbandForAnHour.DAL.Dtos;
+using System.Collections.Generic;
 
 namespace HusbandForAnHour.BLL
 {
@@ -46,10 +47,15 @@ namespace HusbandForAnHour.BLL
             return result;
         }
 
-        public List<RequestOutputModel> GetRequestByClient(long clientId)
+        public List<RequestOutputModel> GetAllRequestByStatus(int statusId)
         {
-            var dtos = _requestRepository.GetRequestByClient(clientId);
-            return _mapper.Map<List<RequestOutputModel>>(dtos);
+            var dtos = _requestRepository.GetAllRequestByStatus(statusId);
+            List<RequestOutputModel> result = new();
+            foreach (var item in dtos)
+            {
+                result.Add(GetRequest(item.Id));
+            }
+            return result;
         }
 
         public void CreateRequest(long clientId, DateTime date,string address, string comment)
