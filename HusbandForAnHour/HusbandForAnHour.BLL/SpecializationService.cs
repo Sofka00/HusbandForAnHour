@@ -43,9 +43,9 @@ namespace HusbandForAnHour.BLL
             return result;
         }
 
-        public void CreateSpecialization(SpecializationDto specializationDto)
+        public void CreateSpecialization(string name)
         {
-            _repository.CreateSpecialization(specializationDto.Name);
+            _repository.CreateSpecialization(name);
         }
 
         public int UpdateSpecialization(int specId,string name )
