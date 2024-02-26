@@ -12,28 +12,35 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
     public class UpdateRequestState : AbstractState
     {
         private RequestService _requestService;
+        private StatusService _statusService;
         public UpdateRequestState()
         {
             _requestService = new RequestService();
+
         }
         public override AbstractState ReceiveMessage(Update update)
         {
             AbstractState abstractState = this;
-            if (int.TryParse(update.Message.Text, out int id))
+
+            var tmp = update.Message.Text.Split(" ");
+            if (tmp.Length == 2 && int.TryParse(tmp[0], out int id) && long.TryParse(tmp[1], out long clientId) && DateTime.TryParse(tmp[4], out DateTime date) && int.TryParse(tmp[5], out int statusId))
             {
-                _requestService.UpdateRequest(id);
+                _requestService.UpdateRequest(id,clientId, tmp[2], tmp[3],date, statusId);
             }
             else
-            {
-                SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.Message.Chat, "Id не вереен ");
-                return this;
+            { 
+                SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.Message.Chat, "Id не вереен ");         
             }
+            return this;
+                
             return new AdminState();
         }
 
         public override void SendMessage(long chatId)
         {
-            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Введите Id для обновления");
+            var status = _statusService.GetAllStatus();
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Введите поля для обновления через проблел: ID запросы, коммент, адрес, дата, IDстатус");
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, $"{status}");
         }
     }
 }

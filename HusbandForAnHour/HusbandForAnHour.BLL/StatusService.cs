@@ -44,5 +44,9 @@ namespace HusbandForAnHour.BLL
         {
             return _repository.RestoreStatus(id);
         }
+        public List<StatusDto> GetAllStatus()
+        {
+            return _repository.GetAllStatus();
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace HusbandForAnHour.TG.States
                     result = new WorkerStartState();
                     break;
                 default:
-                    SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.CallbackQuery.Message.Chat.Id, "Выберите действие что хотите посмотреть");
+                    SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.CallbackQuery.Message.Chat.Id, "Выберите действие");
                     break;
             }
             return result;
