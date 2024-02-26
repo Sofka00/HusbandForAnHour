@@ -11,10 +11,12 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 {
     internal class UpdateServiceState : AbstractState
     {
-        private ServiceService _requestService;
+        private RequestService _requestService;
+        private StatusService _statusService;
         public UpdateServiceState()
         {
             _requestService = new RequestService();
+            _statusService = new();
 
         }
         public override AbstractState ReceiveMessage(Update update)
