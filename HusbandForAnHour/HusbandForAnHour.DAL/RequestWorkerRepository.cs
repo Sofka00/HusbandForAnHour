@@ -5,7 +5,7 @@ using HusbandForAnHour.DAL.StoredProcedures;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-public class RequestWorkerRepository : IRequestWorkerRepository
+public class RequestWorkerRepository
 {
     public void CreateRequestWorker(int idRequest, long idWorker)
     {
@@ -31,7 +31,7 @@ public class RequestWorkerRepository : IRequestWorkerRepository
         }
     }
 
-    public List<RequestWorkerDto> SelectRequestWorkerByWorker(int idWorker)
+    public List<RequestWorkerDto> SelectRequestWorkerByWorker(long idWorker)
     {
         using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
         {

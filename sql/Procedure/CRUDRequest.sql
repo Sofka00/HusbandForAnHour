@@ -75,3 +75,14 @@ UPDATE Request
 SET ClientId=@ClientId, Date=@Date, Address=@Address, StatusId=@StatusId, Comment=@Comment 
 WHERE Id=@Id AND IsDeleted = 0
 END
+
+CREATE PROCEDURE AcceptingRequest
+@Id INT
+AS
+BEGIN
+UPDATE Request
+SET Status=4 
+WHERE Id=@Id
+END
+
+GO

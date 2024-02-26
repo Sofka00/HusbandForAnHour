@@ -1,4 +1,5 @@
-﻿using HusbandForAnHour.TG.States.WorkerStates;
+using HusbandForAnHour.BLL;
+using HusbandForAnHour.TG.States.WorkerStates;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -7,6 +8,12 @@ namespace HusbandForAnHour.TG.States
 {
     public class WorkerStartState : AbstractState
     {
+        private RequestService _requestService;
+        public WorkerStartState()
+        {
+            _requestService = new();
+        }
+
         public override AbstractState ReceiveMessage(Update update)
         {
             AbstractState result = new WorkerStartState();
@@ -14,16 +21,16 @@ namespace HusbandForAnHour.TG.States
             {
                 case "1":
                     result = new AcceptedRequestsState();
-                    break;
+                    break;                          
                 case "2":
-                    result = new WorkerStartState();
+                    result = new CompleatedRequestsState();
 
                     break;
                 case "3":
-                    result = new WorkerStartState();
+                    result = new HoldRequestsState();
                     break;
                 case "4":
-                    result = new WorkerStartState();
+                    
                     break;
                 default:
                     SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.CallbackQuery.Message.Chat.Id, "Выберите действие");
