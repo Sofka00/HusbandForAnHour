@@ -6,7 +6,31 @@ using System.Threading.Tasks;
 
 namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 {
-    internal class AddStatusState
+    public class DeleteStatusState : AbstractState
     {
+        private StatusService _statusService;
+        public DeleteStatusState()
+        {
+            _statusService = new StatusService();
+        }
+        public override AbstractState ReceiveMessage(Update update)
+        {
+            AbstractState abstractState = this;
+            if (int.TryParse(update.Message.Text, out int id))
+            {
+                _statusService.DeleteStatus(id);
+            }
+            else
+            {
+                SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.Message.Chat, "Id не вереен ");
+                return this;
+            }
+            return new AdminState();
+        }
+
+        public override void SendMessage(long chatId)
+        {
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Введите Id для удаления");
+        }
     }
 }

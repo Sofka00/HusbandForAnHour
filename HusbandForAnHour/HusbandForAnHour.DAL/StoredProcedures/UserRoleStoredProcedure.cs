@@ -13,6 +13,7 @@ namespace HusbandForAnHour.DAL.StoredProcedures
         public const string DeleteUserRole = "DeleteUserRole";
 
         public const string GetUserRole = "GetUserRole";
+        public const string GetAllUserRole = "GetAllUserRole";
 
         public const string UpdateUserRole = "UpdateUserRole";
         public const string RestoreUserRole = "RestoreUserRole";

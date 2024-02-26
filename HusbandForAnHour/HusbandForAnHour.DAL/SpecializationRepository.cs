@@ -53,6 +53,13 @@ namespace HusbandForAnHour.DAL
                 return connection.Execute(SpecializationStoredProcedure.RestoreSpecialization, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+        public List<SpecializationDto> GetAllSpecialization()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<SpecializationDto>(SpecializationStoredProcedure.GetAllSpecialization, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
 
     }
 }

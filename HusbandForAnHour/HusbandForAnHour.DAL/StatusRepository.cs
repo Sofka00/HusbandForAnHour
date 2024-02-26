@@ -53,6 +53,13 @@ namespace HusbandForAnHour.DAL
                 return connection.Execute(StatusStoredProcedure.RestoreStatus, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+        public List<StatusDto> GetAllStatus()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<StatusDto>(StatusStoredProcedure.GetAllStatus, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
 
     }
 }

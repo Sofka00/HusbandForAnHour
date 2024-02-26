@@ -54,5 +54,12 @@ namespace HusbandForAnHour.DAL
             }
         }
 
+        public List<UserRoleDto> GetAllUserRole()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<UserRoleDto>(UserRoleStoredProcedure.GetAllUserRole, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
     }
 }

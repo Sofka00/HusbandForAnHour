@@ -10,7 +10,6 @@ namespace HusbandForAnHour.BLL.Models.InpetModels
     public class RequestInputModel
     {
         public int ClientId { get; set; }
-        public DateTime Date { get; set; }
         public string Address { get; set; }
         public string? Comment { get; set; }
     }
