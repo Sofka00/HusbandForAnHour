@@ -4,6 +4,7 @@ using HusbandForAnHour.BLL.Models.OutputModels;
 using HusbandForAnHour.DAL;
 using HusbandForAnHour.DAL.Dtos;
 using System.Collections.Generic;
+using System.Net;
 
 namespace HusbandForAnHour.BLL
 {
@@ -73,11 +74,31 @@ namespace HusbandForAnHour.BLL
             return _requestRepository.RestoreRequest(id);
         }
 
-        public int UpdateRequest(RequestDto requestDto)
+        public int UpdateRequest(int id, long clientId, string comment, string address, DateTime? date=null,  int? statusId = null)
         {
-            return _requestRepository.UpdateRequest(requestDto.Id, requestDto.ClientId, requestDto.Date, requestDto.Address, requestDto.StatusId, requestDto.Comment);
-        }
+            var tmp=_requestRepository.GetRequest(id);
+            if (comment!=default)
+            {
+                tmp.Comment = comment;
+            }
 
+            if (date!=null)
+            {
+                tmp.Date =date.Value;
+            }
+
+            if (address!=default)
+            {
+                tmp.Address=address;
+            }
+
+            if (statusId != default)
+            {
+                tmp.StatusId= statusId!.Value;
+            }
+            return _requestRepository.UpdateRequest(id, clientId, tmp.Date, tmp.Address, tmp.StatusId, tmp.Comment);
+        }
+                                                                                             
 
     }
 }

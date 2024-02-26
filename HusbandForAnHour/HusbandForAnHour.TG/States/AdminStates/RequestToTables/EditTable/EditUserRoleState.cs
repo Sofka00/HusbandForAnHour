@@ -17,7 +17,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
             switch (update.CallbackQuery.Data)
             {
                 case "1":
-                    result = new AddUSerRoleState();
+                    result = new AddUserRoleState();
                     break;
                 case "2":
                     result = new DeleteUserRoleState();

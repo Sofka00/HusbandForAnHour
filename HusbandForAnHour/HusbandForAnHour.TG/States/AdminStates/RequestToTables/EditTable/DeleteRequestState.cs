@@ -25,7 +25,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
             }else
             {
                 SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.Message.Chat, "Id не вереен ");
-                return this;
+                return abstractState;
             }
             return new AdminState();
         }

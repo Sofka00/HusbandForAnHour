@@ -21,7 +21,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
             AbstractState abstractState = this;
             if (int.TryParse(update.Message.Text, out int id))
             {
-                //_requestService.UpdateRequest(id);
+                _requestService.UpdateRequest(id);
             }
             else
             {

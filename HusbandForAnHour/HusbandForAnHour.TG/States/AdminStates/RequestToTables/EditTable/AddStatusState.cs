@@ -21,11 +21,9 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
         public override AbstractState ReceiveMessage(Update update)
         {
             AbstractState result = this;
-            var tmp = update.Message.Text.Split(" ");
-            if (tmp.Length == 2)
+            if (update.Message.Text != default)
             {
-
-                _statusService.CreateStatus(tmp[0]);
+                _statusService.CreateStatus(update.Message.Text);
                 result = new AdminState();
             }
             else

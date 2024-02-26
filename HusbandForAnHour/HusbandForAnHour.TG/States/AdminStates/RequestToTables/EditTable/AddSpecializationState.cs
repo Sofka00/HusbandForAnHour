@@ -22,10 +22,10 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
         {
             AbstractState result = this;
             var tmp = update.Message.Text.Split(" ");
-            if (tmp.Length == 2 )
+            if (update.Message.Text != default )
             {
 
-                _specializationService.CreateSpecialization( tmp[0]);
+                _specializationService.CreateSpecialization(update.Message.Text);
                 result = new AdminState();
             }
             else
@@ -37,7 +37,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 
         public override void SendMessage(long chatId)
         {
-            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Чтобы добавить специализацию, введите данные через пробел: название");
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Чтобы добавить специализацию, введите название");
         }
     }
 }
