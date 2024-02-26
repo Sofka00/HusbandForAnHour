@@ -43,13 +43,13 @@ namespace HusbandForAnHour.TG.States.WorkerStates
 
                                 }
                             );
-            var c =_requestClient.GeAlltRequestsByWorkerWithStatus(chatId, 8);
+            //var c =_requestClient.GetAlltRequestsByWorkerWithStatus(chatId, 8);
             string tmp = "";
-            foreach (GeAlltRequestsByWorkerOutput requestsByWorker in c ) 
-            {
-                tmp += $"{requestsByWorker}{Environment.NewLine}";
+            //foreach (GeAlltRequestsByWorkerOutput requestsByWorker in c ) 
+            //{
+            //    tmp += $"{requestsByWorker}{Environment.NewLine}";
 
-            }
+            //}
             SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, $"Все услуги которые приняли:{Environment.NewLine}" + tmp, replyMarkup: markup);
         }
     }

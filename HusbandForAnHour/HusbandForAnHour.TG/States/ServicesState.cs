@@ -24,7 +24,7 @@ namespace HusbandForAnHour.TG.States
         public override void SendMessage(long chatId)
         {
             _services = new ServiceService();
-           List<ServicesOutputModel> services = _services.GetServices();
+           List<ServicesOutputModel> services = _services.GetAllService();
            List<List<InlineKeyboardButton>> keys = new List<List<InlineKeyboardButton>>();
             int count = 0;
             foreach (var service in services)

@@ -38,6 +38,13 @@ FROM [Service]
 WHERE [Service].Id=@Id
 END
 
+GOCREATE PROCEDURE GetAllServices 
+AS
+BEGIN
+SELECT *
+FROM [Service]
+END
+
 GO
 CREATE PROCEDURE GetServiceBySpecialization
 @Id INT 

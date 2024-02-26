@@ -20,7 +20,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
                     result = new AddRequestState();
                     break;
                 case "2":
-                    result = new EditRequestState();
+                    result = new UpdateRequestState();
                     break;
                 case "3":
                     result = new DeleteRequestState();

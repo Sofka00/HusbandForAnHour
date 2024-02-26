@@ -11,10 +11,10 @@ using Telegram.Bot.Types;
 
 namespace HusbandForAnHour.TG.State
 {
-    public class RequestProcessingState : AbstractState
+    public class RequestsInWorkState : AbstractState
     {
         private RequestService _requestService;
-        public RequestProcessingState()
+        public RequestsInWorkState()
         {
             _requestService = new();
         }
@@ -33,11 +33,9 @@ namespace HusbandForAnHour.TG.State
             return result;
         }
 
-
-
         public override void SendMessage(long chatId)
         {
-            var allRequest = _requestService.GetAllRequestByStatus(0);
+            var allRequest = _requestService.GetAllRequestByStatus(1);
             string tmp = "";
             foreach (var item in allRequest)
             {

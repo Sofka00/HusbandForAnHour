@@ -13,6 +13,7 @@ namespace HusbandForAnHour.DAL.StoredProcedures
         public const string DeleteServices = "DeleteService";
 
         public const string GetService = "GetService";
+        public const string GetAllServices = "GetAllServices";
         public const string RestoreService = "RestoreService";
 
         public const string GetServiceBySpecialization = "GetServiceBySpecialization";

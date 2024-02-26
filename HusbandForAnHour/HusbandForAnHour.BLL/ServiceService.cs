@@ -29,6 +29,17 @@ namespace HusbandForAnHour.BLL
             result.Specialization = _specializationService.GetSpecialization(dto.SpecializationId);
             return result;
         }
+        public List<ServicesOutputModel> GetAllService()
+        {
+            var dto = _repository.GetAllServices();
+            var result = _mapper.Map<List<ServicesOutputModel>>(dto);
+            for (int i = 0; i < dto.Count; i++)
+            {
+                result[i].Specialization = _specializationService.GetSpecialization(dto[i].SpecializationId);
+            }
+            return result;
+        }
+
 
         public List<ServicesOutputModel> GetServiceBySpecialization(int id)
         {

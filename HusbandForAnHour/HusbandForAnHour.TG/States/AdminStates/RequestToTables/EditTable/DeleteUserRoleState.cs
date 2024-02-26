@@ -1,14 +1,17 @@
-﻿using System;
+﻿using HusbandForAnHour.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 
 namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 {
         public class DeleteUserRoleState : AbstractState
         {
-            private UserRoleService userRoleService;
+            private UserRoleService _userRoleService;
             public DeleteUserRoleState()
             {
                 _userRoleService = new UserRoleService();

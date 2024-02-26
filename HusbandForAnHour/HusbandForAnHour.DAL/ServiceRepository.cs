@@ -45,6 +45,13 @@ namespace HusbandForAnHour.DAL
                 return connection.QuerySingle<ServicesDto>(ServiceStoredProcedure.GetService, new { Id = id }, commandType: CommandType.StoredProcedure);
             }
         }
+         public List<ServicesDto> GetAllServices()
+        {
+            using (IDbConnection connection = new SqlConnection(Options.ConnectionString))
+            {
+                return connection.Query<ServicesDto>(ServiceStoredProcedure.GetAllServices, commandType: CommandType.StoredProcedure).ToList();
+            }
+        }
 
         public List<ServicesDto> GetServiceBySpecialization(int id)
         {

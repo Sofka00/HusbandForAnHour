@@ -8,7 +8,9 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using HusbandForAnHour.TG.States.AdminStates;
-using HusbandForAnHour.TG.States.AdminStates.AdminCreateWorkerStates;
+using HusbandForAnHour.TG.States.AdminStates.RequestToTables;
+using HusbandForAnHour.TG.State;
+using HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable;
 
 
 namespace HusbandForAnHour.TG.States.AdminStates
@@ -29,11 +31,11 @@ namespace HusbandForAnHour.TG.States.AdminStates
             }
             else if (update.CallbackQuery.Data == "3")
             {
-                replyState = new CreateWorkerState();
+                replyState = new RequestsInWorkState();
             }                     
             else if (update.CallbackQuery.Data == "4")
             {
-                replyState = new CreateWorkerState();
+                replyState = new UpdateRequestState();
             }
                 return replyState;
         }
