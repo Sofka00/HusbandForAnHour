@@ -9,6 +9,7 @@ namespace HusbandForAnHour.BLL
     public class ServicesService
     {
         private ServiceRepository _repository;
+        private SpecializationService _specializationService;
         private Mapper _mapper;
         public ServicesService()
         {
@@ -18,12 +19,15 @@ namespace HusbandForAnHour.BLL
             });
                 _mapper = new Mapper(config);
             _repository = new ServiceRepository();
+            _specializationService = new SpecializationService();
         }
 
         public ServicesOutputModel GetService(int id)
         {
             var dto = _repository.GetService(id);
-            return _mapper.Map<ServicesOutputModel>(dto);
+            var result = _mapper.Map<ServicesOutputModel>(dto);
+            result.Specialization = _specializationService.GetSpecialization(dto.SpecializationId);
+            return result;
         }
 
         public List<ServicesOutputModel> GetServiceBySpecialization(int id)
