@@ -72,6 +72,9 @@ namespace HusbandForAnHour.BLL
             return _requestRepository.UpdateRequest(requestDto.Id, requestDto.ClientId, requestDto.Date, requestDto.Address, requestDto.StatusId, requestDto.Comment);
         }
 
-
+        public void UpdateRequest(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
