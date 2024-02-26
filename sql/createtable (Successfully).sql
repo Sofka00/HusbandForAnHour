@@ -1,75 +1,62 @@
 CREATE TABLE [UserRole] (
-	Id int NOT NULL,
+	Id int PRIMARY KEY IDENTITY(1,1),
 	Name nvarchar(255) NOT NULL,
-  CONSTRAINT [PK_USERROLE] PRIMARY KEY CLUSTERED
-  (
-  [Id] ASC
-  ) WITH (IGNORE_DUP_KEY = OFF)
+	IsDeleted bit NOT NULL
 
 )
 GO
 CREATE TABLE [Specialization] (
-	Id int NOT NULL,
+	Id int PRIMARY KEY IDENTITY(1,1),
 	Name nvarchar(255) NOT NULL,
-	IsDeleted bit NOT NULL,
-  CONSTRAINT [PK_SPECIALIZATION] PRIMARY KEY CLUSTERED
-  (
-  [Id] ASC
-  ) WITH (IGNORE_DUP_KEY = OFF)
+	IsDeleted bit NOT NULL
+
 
 )
 GO
 CREATE TABLE [Status] (
-	Id int NOT NULL,
+	Id int PRIMARY KEY IDENTITY(1,1),
 	Name nvarchar(255) NOT NULL,
-	IsDeleted bit NOT NULL,
-  CONSTRAINT [PK_STATUS] PRIMARY KEY CLUSTERED
-  (
-  [Id] ASC
-  ) WITH (IGNORE_DUP_KEY = OFF)
+	IsDeleted bit NOT NULL
 
 )
 GO
-CREATE TABLE [Services] (
-	Id int NOT NULL,
+CREATE TABLE [Service] (
+	Id int PRIMARY KEY IDENTITY(1,1),
 	Name nvarchar(255) NOT NULL,
 	SpecializationId int REFERENCES Specialization (Id),
-	IsDeleted bit NOT NULL,
-  CONSTRAINT [PK_SERVICES] PRIMARY KEY CLUSTERED
-  (
-  [Id] ASC
-  ) WITH (IGNORE_DUP_KEY = OFF)
+	IsDeleted bit NOT NULL
 
 )
 GO
 CREATE TABLE [User] (
-	Id int NOT NULL,
+	Id BIGINT PRIMARY KEY NOT NULL,
 	RoleId int REFERENCES UserRole (Id) NOT NULL,
 	FirstName nvarchar(255) NOT NULL,
 	SecondName nvarchar(255) NOT NULL,
-	Phone BIGINT,
+	Phone BIGINT NOT NULL,
 	SpecializationId int REFERENCES Specialization (Id),
-	IsDeleted bit NOT NULL,
-  CONSTRAINT [PK_USER] PRIMARY KEY CLUSTERED
-  (
-  [Id] ASC
-  ) WITH (IGNORE_DUP_KEY = OFF)
+	IsDeleted bit NOT NULL
 
 )
 GO
 CREATE TABLE [Request] (
-	Id int NOT NULL,
-	WorkerId int REFERENCES dbo.[User] (Id) NOT NULL,
-	ClientId int REFERENCES dbo.[User] (Id) NOT NULL,
-	ServicesId int NOT NULL,
+	Id int PRIMARY KEY IDENTITY(1,1),
+	ClientId BIGINT REFERENCES dbo.[User] (Id) NOT NULL,
 	Date date NOT NULL,
 	Address nvarchar(255) NOT NULL,
-	StatusId int NOT NULL,
+	StatusId int REFERENCES dbo.[Status] (Id)  NOT NULL,
 	Comment nvarchar(255),
-  CONSTRAINT [PK_REQUEST] PRIMARY KEY CLUSTERED
-  (
-  [Id] ASC
-  ) WITH (IGNORE_DUP_KEY = OFF)
+	IsDeleted BIT NOT NULL
+)
+GO
+CREATE TABLE RequestWorker (
+	IdRequest int NOT NULL,
+	IdWorker BIGINT NOT NULL,
+)
 
+GO
+CREATE TABLE RequestService (
+	IdRequest int NOT NULL,
+	IdService int NOT NULL,
 )
 GO
