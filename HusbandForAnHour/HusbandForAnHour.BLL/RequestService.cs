@@ -15,6 +15,7 @@ namespace HusbandForAnHour.BLL
         private RequestServiceRepository _requestServiceRepository;
         private ServiceService _servicesClient;
         private UserService _userService;
+        private StatusService _statusService;
         private Mapper _mapper;
 
         public RequestService()
@@ -27,7 +28,7 @@ namespace HusbandForAnHour.BLL
             _userService = new UserService();
             _requestWorkerRepository = new RequestWorkerRepository();
             _requestRepository = new RequestRepository();
-
+            _statusService = new StatusService();
         }
 
         public RequestOutputModel GetRequest(int id)
@@ -57,11 +58,31 @@ namespace HusbandForAnHour.BLL
                 result.Add(GetRequest(item.Id));
             }
             return result;
+        
+        }
+          public List<RequestOutputModel> GetAllRequestByWorkerByStatus(long id, int statusId)
+        {
+            var workers = _requestWorkerRepository.SelectRequestWorkerByWorker(id);
+            var status= _statusService.GetStatus(statusId);
+            List<RequestOutputModel> result = new();
+            foreach (var item in workers)
+            {
+               var v= GetRequest(item.IdRequest);
+                if (v.Status==status.Name)
+                {
+                    result.Add(v);
+                }
+            }
+            return result;
         }
 
         public void CreateRequest(long clientId, DateTime date,string address, string comment)
         {
             _requestRepository.CreateRequest(clientId, date, address, 0, comment);
+        }
+         public void AcceptingRequest(int requestId)
+        {
+            _requestRepository.AcceptingRequest(requestId);
         }
 
         public int DeleteRequest(int id)
@@ -98,7 +119,7 @@ namespace HusbandForAnHour.BLL
             }
             return _requestRepository.UpdateRequest(id, clientId, tmp.Date, tmp.Address, tmp.StatusId, tmp.Comment);
         }
-                                                                                             
+          
 
     }
 }

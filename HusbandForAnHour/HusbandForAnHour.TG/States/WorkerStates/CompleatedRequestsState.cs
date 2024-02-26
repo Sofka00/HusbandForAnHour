@@ -6,11 +6,11 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace HusbandForAnHour.TG.States.WorkerStates
 {
-    public class AcceptedRequestsState : AbstractState
+    public class CompleatedRequestsState : AbstractState
     {
         private RequestService _requestClient;
 
-        public AcceptedRequestsState()
+        public CompleatedRequestsState()
         {
             _requestClient = new RequestService();
         }
@@ -43,7 +43,7 @@ namespace HusbandForAnHour.TG.States.WorkerStates
 
                                 }
                             );
-            var c = _requestClient.GetAllRequestByWorkerByStatus(chatId, 4);
+            var c = _requestClient.GetAllRequestByWorkerByStatus(chatId, 5);
             string tmp = "";
             foreach (var requestsByWorker in c)
             {

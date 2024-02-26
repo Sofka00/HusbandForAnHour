@@ -1,5 +1,6 @@
 ﻿using HusbandForAnHour.TG.States;
 using HusbandForAnHour.TG.States.AdminStates;
+using HusbandForAnHour.TG.States.StartStates;
 using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
@@ -48,7 +49,7 @@ namespace HusbandForAnHour.TG
                 case UpdateType.Message:
                     id = update.Message.Chat.Id;
                     if (!users.ContainsKey(id))
-                        users.Add(id, new StartState());
+                        users.Add(id, new LoginState());
                     else
                     {
                         users[id] = users[id].ReceiveMessage(update);  
