@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HusbandForAnHour.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3f69eb625502c724709662038eb6c7280c2f954")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+509b63bf423551914a1e5639b2c2f64bc48bb372")]
 [assembly: System.Reflection.AssemblyProductAttribute("HusbandForAnHour.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HusbandForAnHour.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

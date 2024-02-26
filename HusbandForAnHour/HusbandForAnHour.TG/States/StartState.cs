@@ -38,12 +38,12 @@ namespace HusbandForAnHour.TG.States
                     {
                         new InlineKeyboardButton[]
                         {
-                            new InlineKeyboardButton("Заказать услугу") { CallbackData="один"},
-                            new InlineKeyboardButton("Услуги") { CallbackData="два"},
+                            new InlineKeyboardButton("Заказать услугу") { CallbackData="1"},
+                            new InlineKeyboardButton("Услуги") { CallbackData="2"},
                         },
                         new InlineKeyboardButton[]
                         {
-                            new InlineKeyboardButton("Статус заказа") { CallbackData="три"},
+                            new InlineKeyboardButton("Статус заказа") { CallbackData="3"},
                         }
                     }
                     );

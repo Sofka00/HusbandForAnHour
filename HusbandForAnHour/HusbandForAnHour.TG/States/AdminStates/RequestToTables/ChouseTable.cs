@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,25 +18,28 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables
             switch (update.CallbackQuery.Data)
             {
                 case "Request":
-
+                    result = new EditRequestState();
                     break;
                  case "Service":
-
+                    result = new EditServiceState();
                     break;
                  case "Specialization":
-
+                    result = new EditSpecializationState();
                     break;
                  case "Status":
-
+                     result=new EditStatusState();
                     break;
                  case "User":
-
+                    result = new EditUserState();
                     break;
                  case "UserRole":
+                    result = new EditUserRoleState();
 
                     break;
 
                 default:
+                    SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.CallbackQuery.Message.Chat.Id, "Выбор Действия");
+
                     break;
             }
             return result;
