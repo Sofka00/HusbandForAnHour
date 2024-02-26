@@ -52,9 +52,9 @@ namespace HusbandForAnHour.BLL
             return _mapper.Map<List<RequestOutputModel>>(dtos);
         }
 
-        public void CreateRequest(RequestDto requestDto)
+        public void CreateRequest(long clientId, DateTime date,string address, string comment)
         {
-            _requestRepository.CreateRequest(requestDto.ClientId, requestDto.Date, requestDto.Address, requestDto.StatusId, requestDto.Comment);
+            _requestRepository.CreateRequest(clientId, date, address, 0, comment);
         }
 
         public int DeleteRequest(int id)
@@ -72,9 +72,6 @@ namespace HusbandForAnHour.BLL
             return _requestRepository.UpdateRequest(requestDto.Id, requestDto.ClientId, requestDto.Date, requestDto.Address, requestDto.StatusId, requestDto.Comment);
         }
 
-        public void UpdateRequest(int id)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
