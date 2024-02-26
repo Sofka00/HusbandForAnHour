@@ -20,12 +20,12 @@ namespace HusbandForAnHour.TG.States.AdminStates
             AbstractState replyState=new StartState();
             if (update.CallbackQuery.Data == "1")
             {
-                replyState=new AdminStateRequest();
+                replyState=new ChouseTable();
             }
             else if (update.CallbackQuery.Data == "2")
             {
                
-                replyState = new CreateNameState();
+                replyState = new RequestProcessingState();
             }
             else if (update.CallbackQuery.Data == "3")
             {
