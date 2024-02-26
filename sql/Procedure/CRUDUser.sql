@@ -2,12 +2,11 @@ CREATE PROCEDURE CreateUser
 	@RoleId int,
 	@FirstName nvarchar(255),
 	@SecondName nvarchar(255),
-	@Phone BIGINT,
-	@SpecializationId int
+	@Phone BIGINT
 AS
 BEGIN
-	INSERT INTO [User] (RoleId, FirstName, SecondName, Phone, SpecializationId, IsDeleted)
-	VALUES (@RoleId, @FirstName, @SecondName, @Phone, @SpecializationId, 0)
+	INSERT INTO [User] (RoleId, FirstName, SecondName, Phone, IsDeleted)
+	VALUES (@RoleId, @FirstName, @SecondName, @Phone, 0)
 END
 GO
 
@@ -24,12 +23,11 @@ CREATE PROCEDURE UpdateUser
 	@RoleId int,
 	@FirstName nvarchar(255),
 	@SecondName nvarchar(255),
-	@Phone BIGINT,
-	@SpecializationId int
+	@Phone BIGINT
 AS
 BEGIN
 	UPDATE [User]
-	SET RoleId = @RoleId, FirstName = @FirstName, SecondName = @SecondName, Phone = @Phone, SpecializationId = @SpecializationId
+	SET RoleId = @RoleId, FirstName = @FirstName, SecondName = @SecondName, Phone = @Phone 
 	WHERE Id = @Id AND IsDeleted = 0
 END
 GO

@@ -9,7 +9,7 @@ namespace HusbandForAnHour.BLL.Models.OutputModels
 {
     public class UserOutputModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public int RoleId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }

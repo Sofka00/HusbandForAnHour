@@ -8,7 +8,7 @@ namespace HusbandForAnHour.BLL.Models.OutputModels
 {
     public class GetAllRequestOutPutModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public DateTime Date { get; set; }

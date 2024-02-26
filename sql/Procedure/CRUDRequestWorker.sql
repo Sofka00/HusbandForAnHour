@@ -17,3 +17,20 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SelectRequestWorkerByRequest
+	@IdRequest int
+
+AS
+BEGIN
+    SELECT * FROM RequestWorker Where RequestWorker.IdRequest=@IdRequest;
+END;
+GO
+
+CREATE PROCEDURE SelectRequestWorkerByWorker
+	@IdWorker int
+
+AS
+BEGIN
+    SELECT * FROM RequestWorker Where RequestWorker.IdWorker=@IdWorker;
+END;
+GO

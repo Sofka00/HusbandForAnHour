@@ -34,7 +34,6 @@ CREATE TABLE [User] (
 	FirstName nvarchar(255) NOT NULL,
 	SecondName nvarchar(255) NOT NULL,
 	Phone BIGINT NOT NULL,
-	SpecializationId int REFERENCES Specialization (Id),
 	IsDeleted bit NOT NULL
 
 )
@@ -50,13 +49,19 @@ CREATE TABLE [Request] (
 )
 GO
 CREATE TABLE RequestWorker (
-	IdRequest int NOT NULL,
-	IdWorker BIGINT NOT NULL,
+	IdRequest int REFERENCES dbo.[Request] (Id) NOT NULL,
+	IdWorker BIGINT REFERENCES dbo.[User] (Id) NOT NULL,
 )
 
 GO
 CREATE TABLE RequestService (
-	IdRequest int NOT NULL,
-	IdService int NOT NULL,
+	IdRequest int REFERENCES dbo.[Request] (Id) NOT NULL,
+	IdService int REFERENCES dbo.Service (Id) NOT NULL,
+)
+GO
+
+CREATE TABLE UserSpecialization (
+	IdUser BIGINT REFERENCES dbo.[User] (Id) NOT NULL,
+	IdSpecialization int REFERENCES Specialization (Id) NOT NULL,
 )
 GO

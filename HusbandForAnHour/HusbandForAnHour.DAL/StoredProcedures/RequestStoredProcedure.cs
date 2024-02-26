@@ -8,14 +8,14 @@ namespace HusbandForAnHour.DAL.StoredProcedures
 {
     public class RequestStoredProcedure
     {
-        public const string GetAllRequest = "GetAllRequest";
-
         public const string CreateRequest = "CreateRequest";
+        public const string DeleteRequest = "DeleteRequest";
+        public const string RestoreRequest = "RestoreRequest";
 
-        public const string DeleteRequestById = "DeleteRequestById";
+        public const string GetRequest = "GetRequest";
 
-        public const string GetRequestById = "GetRequestById";
-
+        public const string GetRequestByClient = "GetRequestByClient";
         public const string UpdateRequest = "UpdateRequest";
+
     }
 }

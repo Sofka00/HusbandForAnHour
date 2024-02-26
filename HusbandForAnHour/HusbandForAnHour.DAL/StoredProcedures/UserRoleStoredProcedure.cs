@@ -10,10 +10,11 @@ namespace HusbandForAnHour.DAL.StoredProcedures
     {
         public const string CreateUserRole = "CreateUserRole";
 
-        public const string DeleteUserRoleById = "DeleteUserRoleById";
+        public const string DeleteUserRole = "DeleteUserRole";
 
-        public const string GetUserRoleById = "GetUserRoleById";
+        public const string GetUserRole = "GetUserRole";
 
         public const string UpdateUserRole = "UpdateUserRole";
+        public const string RestoreUserRole = "RestoreUserRole";
     }
 }

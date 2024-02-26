@@ -15,3 +15,21 @@ BEGIN
 	DELETE FROM RequsetService WHERE IdRequest = @IdRequest
 END
 GO
+
+CREATE PROCEDURE SelectRequestServiceByRequest
+	@IdRequest int
+
+AS
+BEGIN
+    SELECT * FROM RequestService Where RequestService.IdRequest=@IdRequest;
+END;
+GO
+
+CREATE PROCEDURE SelectRequestServiceByService
+	@IdService int
+
+AS
+BEGIN
+    SELECT * FROM RequestService Where RequestService.IdService=@IdService;
+END;
+GO

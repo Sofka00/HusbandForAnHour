@@ -9,15 +9,12 @@ namespace HusbandForAnHour.DAL.Dtos
 {
     public class RequestDto
     {
-        public  int Id { get; set; }
-        public List<UserDto> Worker { get; set; }
-        public UserDto Client{ get; set; }
-        public List<ServicesDto> Services { get; set; }
-        public DateTime Date {  get; set; }
+        public int Id { get; set; }
+        public long ClientId { get; set; }
+        public DateTime Date { get; set; }
         public string Address { get; set; }
         public int StatusId { get; set; }
-        public string? Comment { get; set; }
-
-
+        public string Comment { get; set; }
+        public bool IsDeletd { get; set; }
     }
 }

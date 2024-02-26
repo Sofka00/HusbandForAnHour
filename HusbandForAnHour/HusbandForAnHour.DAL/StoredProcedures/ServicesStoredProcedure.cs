@@ -8,13 +8,14 @@ namespace HusbandForAnHour.DAL.StoredProcedures
 {
     public class ServicesStoredProcedure
     {
-        public const string CreateServices = "CreateServices";
+        public const string CreateServices = "CreateService";
 
-        public const string DeleteServices = "DeleteServices";
+        public const string DeleteServices = "DeleteService";
 
-        public const string GetServicesById = "GetServicesById";
+        public const string GetService = "GetService";
+        public const string RestoreService = "RestoreService";
 
-        public const string UpdateServices = "UpdateServices";
-        public const string GetAllServices = "GetAllServices"; 
+        public const string GetServiceBySpecialization = "GetServiceBySpecialization";
+        public const string UpdateService = "UpdateService"; 
     }
 }

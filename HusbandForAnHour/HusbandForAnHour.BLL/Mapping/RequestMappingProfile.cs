@@ -20,7 +20,7 @@ namespace HusbandForAnHour.BLL.Mapping
             CreateMap<UserDto, RequestOutputModel>();
             CreateMap<RequestInputModel, UserDto> ();
             CreateMap<GetAllRequestDto,GetAllRequestOutPutModel> ();
-
+            CreateMap<GeAlltRequestsByWorkerDto, GeAlltRequestsByWorkerOutput>();
            
 
         }

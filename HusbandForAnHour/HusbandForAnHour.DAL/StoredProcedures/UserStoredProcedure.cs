@@ -12,8 +12,9 @@ namespace HusbandForAnHour.DAL.StoredProcedures
 
         public const string DeleteUser = "DeleteUser";
 
-        public const string GetUserById = "GetUserById";
+        public const string GetUser = "GetUser";
 
+        public const string RestoreUser = "RestoreUser";
         public const string UpdateUser = "UpdateUser";
     }
 }
