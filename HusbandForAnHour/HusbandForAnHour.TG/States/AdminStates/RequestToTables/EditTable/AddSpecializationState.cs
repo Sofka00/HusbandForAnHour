@@ -1,22 +1,43 @@
-﻿using System;
+﻿using HusbandForAnHour.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Telegram.Bot;
 using Telegram.Bot.Types;
 
 namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 {
     public class AddSpecializationState : AbstractState
     {
+        private SpecializationService _specializationService;
+
+        public AddSpecializationState()
+        {
+            _specializationService = new SpecializationService();
+        }
+
         public override AbstractState ReceiveMessage(Update update)
         {
-            throw new NotImplementedException();
+            AbstractState result = this;
+            var tmp = update.Message.Text.Split(" ");
+            if (tmp.Length == 2 )
+            {
+
+                _specializationService.CreateSpecialization( tmp[0]);
+                result = new AdminState();
+            }
+            else
+            {
+                SingleToneStorage.GetStorage().Client.SendTextMessageAsync(update.Message.Chat.Id, "Ввод неверный");
+            }
+            return result;
         }
 
         public override void SendMessage(long chatId)
         {
-            throw new NotImplementedException();
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Чтобы добавить специализацию, введите данные через пробел: название");
         }
     }
 }

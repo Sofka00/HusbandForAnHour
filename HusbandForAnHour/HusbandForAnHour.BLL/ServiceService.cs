@@ -1,4 +1,4 @@
-﻿using HusbandForAnHour.DAL.Dtos;
+using HusbandForAnHour.DAL.Dtos;
 using AutoMapper;
 using HusbandForAnHour.BLL.Mapping;
 using HusbandForAnHour.BLL.Models.OutputModels;
@@ -47,9 +47,9 @@ namespace HusbandForAnHour.BLL
             return _mapper.Map<List<ServicesOutputModel>>(dtos);
         }
 
-        public void CreateService(ServicesDto servicesDto)
+        public void CreateService(string name, int SpecializationId)
         {
-            _repository.CreateService(servicesDto.Name, servicesDto.SpecializationId);
+            _repository.CreateService(name, SpecializationId);
         }
 
         public int DeleteService(int id)

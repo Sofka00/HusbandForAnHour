@@ -22,7 +22,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
         {
             AbstractState result = this;
             var tmp = update.Message.Text.Split(" ");
-            if (tmp.Length>1&& tmp.Length<3)
+            if (tmp.Length == 2)
             {
                 _requestService.CreateRequest(update.Message.Chat.Id, DateTime.Now, tmp[0], tmp[1]);
                 result = new AdminState();

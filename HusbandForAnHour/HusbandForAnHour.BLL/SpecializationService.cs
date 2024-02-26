@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using HusbandForAnHour.BLL.Mapping;
 using HusbandForAnHour.BLL.Models.InputModels;
 using HusbandForAnHour.BLL.Models.OutputModels;
@@ -48,9 +48,9 @@ namespace HusbandForAnHour.BLL
             _repository.CreateSpecialization(specializationDto.Name);
         }
 
-        public int UpdateSpecialization(SpecializationDto specializationDto)
+        public int UpdateSpecialization(int specId,string name )
         {
-            return _repository.UpdateSpecialization(specializationDto.Id, specializationDto.Name);
+            return _repository.UpdateSpecialization(specId, name);
         }
 
         public int DeleteSpecialization(int id)
