@@ -17,16 +17,16 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
             switch (update.CallbackQuery.Data)
             {
                 case "1":
-
+                    result = new AddRequestState();
                     break;
                 case "2":
-
+                    result = new EditRequestState();
                     break;
                 case "3":
-
+                    result = new DeleteRequestState();
                     break;
                 case "4":
-
+                    result = new RestoreRequestState();
                     break;
 
                 default:
