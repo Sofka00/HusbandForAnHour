@@ -6,12 +6,12 @@ using HusbandForAnHour.BLL.Models.InputModels;
 using HusbandForAnHour.DAL;
 namespace HusbandForAnHour.BLL
 {
-    public class ServicesService
+    public class ServiceService
     {
         private ServiceRepository _repository;
         private SpecializationService _specializationService;
         private Mapper _mapper;
-        public ServicesService()
+        public ServiceService()
         {
             var config = new MapperConfiguration(cfg =>
             {

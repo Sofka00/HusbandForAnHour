@@ -10,14 +10,14 @@ namespace HusbandForAnHour.TG.States.AdminStates
     public class AdminStatesCreateServices : AbstractState
     {
         private string _name;
-        private ServicesService _servicesClient;
+        private ServiceService _servicesClient;
         private SpecializationService _specialization;
 
         public AdminStatesCreateServices(string name)
         {
             _name = name;
             _specialization = new SpecializationService();
-            _servicesClient = new ServicesService();
+            _servicesClient = new ServiceService();
         }
 
         public override AbstractState ReceiveMessage(Update update)
