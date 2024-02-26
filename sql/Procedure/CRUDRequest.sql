@@ -41,6 +41,15 @@ FROM [Request]
 WHERE [Request].Id=@Id
 END
 
+GOCREATE PROCEDURE GetAllRequestByStatus
+@StatusId int 
+AS
+BEGIN
+SELECT *
+FROM [Request]
+WHERE [Request].StatusId=@StatusId
+END
+
 GO
 CREATE PROCEDURE GetRequestByClient 
 @Id BIGINT 

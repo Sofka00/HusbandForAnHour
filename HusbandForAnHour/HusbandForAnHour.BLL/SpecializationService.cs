@@ -16,7 +16,7 @@ namespace HusbandForAnHour.BLL
     {
         private SpecializationRepository _repository;
         private Mapper _mapper;
-        public SpecializationService ()
+        public SpecializationService()
         {
             var config = new MapperConfiguration(cfg =>
             {
@@ -30,6 +30,17 @@ namespace HusbandForAnHour.BLL
         {
             var dto = _repository.GetSpecialization(id);
             return _mapper.Map<SpecializationOutputModel>(dto);
+        }
+
+        public List<SpecializationOutputModel> GetAllSpecialization()
+        {
+            var dto = _repository.GetAllSpecialization();
+            List<SpecializationOutputModel> result = new();
+            foreach (var item in dto)
+            {
+                result.Add(_mapper.Map<SpecializationOutputModel>(dto));
+            }
+            return result;
         }
 
         public void CreateSpecialization(SpecializationDto specializationDto)

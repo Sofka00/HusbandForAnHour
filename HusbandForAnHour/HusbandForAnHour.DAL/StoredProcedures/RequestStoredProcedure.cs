@@ -13,6 +13,7 @@ namespace HusbandForAnHour.DAL.StoredProcedures
         public const string RestoreRequest = "RestoreRequest";
 
         public const string GetRequest = "GetRequest";
+        public const string GetAllRequestByStatus = "GetAllRequestByStatus";
 
         public const string GetRequestByClient = "GetRequestByClient";
         public const string UpdateRequest = "UpdateRequest";
