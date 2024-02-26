@@ -17,18 +17,18 @@ namespace HusbandForAnHour.TG.States.AdminStates.AdminCreateWorkerStates
         private string _firstName;
         private string _secondName;
         private long _phone;
-        private UserClient _userClient;
-        private UserRoleClient _userRoleClient;
-        private SpecializationClient _specialization;
+        private UserService _userClient;
+        private UserRoleService _userRoleClient;
+        private SpecializationService _specialization;
 
         public CreateSpecIdState(string firstName, string secondName, long phone)
         {
             _firstName = firstName;
             _secondName = secondName;
             _phone = phone;
-            _userClient = new UserClient();
-            _userRoleClient = new UserRoleClient();
-            _specialization = new SpecializationClient();
+            _userClient = new UserService();
+            _userRoleClient = new UserRoleService();
+            _specialization = new SpecializationService();
         }
 
         public override AbstractState ReceiveMessage(Update update)

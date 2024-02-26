@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using Dapper;
 
-public class RequestService : IRequestService
+public class RequestServiceRepository : IRequestService
 {
 
     public void CreateRequestService(int idRequest, int idService)

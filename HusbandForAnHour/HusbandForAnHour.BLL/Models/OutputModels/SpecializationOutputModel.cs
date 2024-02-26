@@ -11,6 +11,5 @@ namespace HusbandForAnHour.BLL.Models.OutputModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<UserOutputModel> User { get; set; }
     }
 }
