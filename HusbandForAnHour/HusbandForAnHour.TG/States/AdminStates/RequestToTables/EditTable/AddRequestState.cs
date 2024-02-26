@@ -36,7 +36,7 @@ namespace HusbandForAnHour.TG.States.AdminStates.RequestToTables.EditTable
 
         public override void SendMessage(long chatId)
         {
-            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Добавить заявку, вводите данные через пробел аддресс, комментарий");
+            SingleToneStorage.GetStorage().Client.SendTextMessageAsync(chatId, "Чтобы добавить заявку, введите данные через пробел: адрес, комментарий");
         }
     }
 }
