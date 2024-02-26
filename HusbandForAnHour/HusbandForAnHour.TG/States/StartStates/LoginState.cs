@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HusbandForAnHour.TG.States.UserStates;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace HusbandForAnHour.TG.States.StartStates
             switch (update.CallbackQuery.Data)
             {
                 case "1":
-                    return new;
+                    return new UserStartState();
                     break;
                 case "2":
                     break;
