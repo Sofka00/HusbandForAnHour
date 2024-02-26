@@ -45,3 +45,10 @@ BEGIN
 	WHERE Id = @Id
 END
 GO
+
+CREATE PROCEDURE GetAllUserRole
+AS
+BEGIN
+	SELECT * FROM UserRole WHERE IsDeleted = 0
+END
+GO

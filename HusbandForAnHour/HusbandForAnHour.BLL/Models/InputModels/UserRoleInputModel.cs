@@ -8,7 +8,6 @@ namespace HusbandForAnHour.BLL.Models.InputModels
 {
     public class UserRoleInputModel
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }

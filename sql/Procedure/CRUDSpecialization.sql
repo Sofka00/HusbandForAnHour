@@ -45,3 +45,10 @@ BEGIN
 	WHERE Id = @Id
 END
 GO
+
+CREATE PROCEDURE GetAllSpecialization
+AS
+BEGIN
+	SELECT * FROM Specialization WHERE IsDeleted = 0
+END
+GO
